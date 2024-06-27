@@ -6,9 +6,9 @@ const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+const calendasPlusBold = localFont({
+  src: "./fonts/CalendasPlusBold.woff2",
+  variable: "--font-calendas-plus-serif",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +23,37 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${calendasPlusBold.variable}`}>
+        <header className="flex flex-col items-center justify-center py-6 px-2">
+          <div className="flex flex-col items-center justify-center gap-1 flex-1">
+            <h1 className="text-5xl font-serif">Ten Million Checkboxes</h1>
+            <p className="text-neutral-600 italic">
+              (checking a box checks it for everyone!)
+            </p>
+          </div>
+
+          <div className="flex items-start w-full">
+            <p>
+              an idea by{" "}
+              <a
+                href="https://eieio.games"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-900 focus:text-blue-900 active:text-blue-900"
+              >
+                eieio
+              </a>{" "}
+              stolen by{" "}
+              <a
+                href="https://x.com/KacperOchmanski"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-900 focus:text-blue-900 active:text-blue-900"
+              >
+                kacper
+              </a>
+            </p>
+          </div>
+        </header>
+
         {children}
       </body>
     </html>

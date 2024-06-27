@@ -1,0 +1,32 @@
+# fly.toml app configuration file generated for web-server-2 on 2024-06-27T17:34:20+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'web-server-2'
+primary_region = 'iad'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ['app']
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 8080
+
+[[services.ports]]
+  port = 80
+  handlers = ['http']
+
+[[services.ports]]
+  port = 443
+  handlers = ['tls', 'http']
+
+[[vm]]
+  memory = '4gb'
+  cpu_kind = 'shared'
+  cpus = 4
